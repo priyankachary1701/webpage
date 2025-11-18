@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Hunger & Undernourishment Visualization</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    header { background: #34495e; color: white; padding: 20px; text-align: center; }
+    nav { background: #2c3e50; display: flex; justify-content: center; flex-wrap: wrap; padding: 10px; }
+    nav button {
+      background: #ecf0f1;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    nav button:hover { background: #bdc3c7; }
+    section { display: none; padding: 30px 20px; max-width: 1000px; margin: auto; }
+    section.active { display: block; }
+    img { max-width: 100%; margin: 20px 0; border: 1px solid #ccc; }
+    iframe { width: 100%; height: 500px; border: none; margin-top: 20px; }
+  </style>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    window.onload = () => showSection('home');
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>Global Food Security & Undernourishment</h1>
+  <p>Interactive Visual Report using Python, Tableau, and D3.js</p>
+</header>
+
+<nav>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('python')">Python</button>
+  <button onclick="showSection('tableau')">Tableau</button>
+  <button onclick="showSection('d3')">D3.js</button>
+  <button onclick="showSection('dashboard')">Dashboard</button>
+  <button onclick="showSection('conclusion')">Conclusion</button>
+</nav>
+
+<section id="home" class="active">
+  <h2>Welcome</h2>
+  <p>
+    This project explores global undernourishment patterns between 2015 and 2022 using data from FAOSTAT.
+    Through Python, Tableau, and D3.js, we visualized trends in hunger, GDP, dietary intake, and more.
+    The project aims to inform researchers and policymakers about key patterns in global food insecurity.
+  </p>
+  <img src="1.png" alt="Dataset Screenshot (Image 1)">
+  <p><b>Image 1:</b> Raw dataset snapshot used for our analysis.</p>
+</section>
+
+<section id="python">
+  <h2>Python Visualizations</h2>
+  <p>Static analysis using matplotlib and plotly tools.</p>
+
+  <img src="2.png" alt="Line Chart (Image 2)">
+  <p><b>Observation:</b> Clear increase in undernourishment in certain regions post-2020, possibly due to pandemic disruptions.</p>
+
+  <img src="3.png" alt="Bar Chart (Image 3)">
+  <p><b>Observation:</b> Countries like India and Nigeria consistently show high undernourishment levels across years.</p>
+
+  <img src="4.png" alt="Stacked Area Chart (Image 4)">
+  <p><b>Observation:</b> Asia dominates the total share of undernourished population globally, but Africa is rising quickly.</p>
+
+  <img src="5.png" alt="Heatmap Chart (Image 5)">
+  <p><b>Observation:</b> A color shift in 2020–2022 indicates rise in food insecurity across many nations.</p>
+
+  <img src="6.png" alt="Bubble Chart (Image 6)">
+  <p><b>Observation:</b> Higher GDP correlates to lower undernourishment, with a few outliers (e.g., oil-rich nations).</p>
+</section>
+
+<section id="tableau">
+  <h2>Tableau Dashboards</h2>
+  <p>Interactive Tableau sheets showing domain-wise breakdown and value trends.</p>
+  <img src="7.png" alt="Tableau Sheet 1 (Image 7)">
+  <p><b>Observation:</b> Largest values are associated with basic dietary items, reflecting priority in data collection.</p>
+  <img src="8.png" alt="Tableau Sheet 2 (Image 8)">
+  <p><b>Observation:</b> Dramatic value fluctuation per year suggests evolving methodology or real economic effects.</p>
+</section>
+
+<section id="d3">
+  <h2>D3.js Interactive Visualizations</h2>
+  <p>Web-based dynamic charts built with D3.js, hosted on VizHub.</p>
+  <h3>Interactive Heatmap</h3>
+  <iframe src="https://vizhub.com/priyankachary1701/3a8044d306044b95aa330b334a181928?mode=embed"></iframe>
+  <p><b>Observation:</b> Hovering over cells shows hotspots of hunger by country/year—darker shades signal worsening trends.</p>
+
+  <h3>Pie + Bar Toggle View</h3>
+  <iframe src="https://vizhub.com/priyankachary1701/ef871f9062904dad9f61265a0c3210ca?mode=embed"></iframe>
+  <p><b>Observation:</b> Changing years alters country rankings, highlighting fluctuations due to policy and aid shifts.</p>
+</section>
+
+<section id="dashboard">
+  <h2>All-in-One Dashboard</h2>
+  <p>All static and interactive visualizations are shown here together for quick comparison. Images are arranged side‑by‑side for easier visual scanning.</p>
+
+  <h3>Python Summary</h3>
+  <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+    <img src="2.png" style="width:45%;">
+    <img src="3.png" style="width:45%;">
+    <img src="4.png" style="width:45%;">
+    <img src="5.png" style="width:45%;">
+    <img src="6.png" style="width:45%;">
+  </div>
+
+  <h3>Tableau Summary</h3>
+  <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+    <img src="7.png" style="width:45%;">
+    <img src="8.png" style="width:45%;">
+  </div>
+
+  <h3>D3.js Summary</h3>
+  <iframe src="https://vizhub.com/priyankachary1701/3a8044d306044b95aa330b334a181928?mode=embed"></iframe>
+  <iframe src="https://vizhub.com/priyankachary1701/ef871f9062904dad9f61265a0c3210ca?mode=embed"></iframe>
+</section>
+
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <p>
+    The overall analysis shows that global undernourishment remains a critical issue, with notable spikes after 2020 due to disruptions in supply chains, economic instability, and climatic pressures. By combining Python analytics, Tableau dashboards, and D3.js interactive charts, the project offers a comprehensive visual narrative that highlights both regional disparities and long‑term trends. The visualizations collectively indicate that several countries continue to experience persistent food insecurity despite global improvements.
+  </p>
+  <ul>
+    <li>Python visualizations helped uncover long‑term numerical patterns such as rising hunger levels in regions like Sub‑Saharan Africa and Southern Asia.</li>
+    <li>Tableau dashboards were useful in summarizing complex domain‑level and item‑level variations across years, giving a structured view of data distribution.</li>
+    <li>Interactive D3.js charts allowed dynamic filtering, enabling users to explore year‑wise and country‑wise fluctuations with better clarity.</li>
+    <li>Across all tools, the findings consistently show that economic vulnerabilities, low caloric intake, and regional instability are strongly tied to undernourishment levels.</li>
+    <li>This multi‑tool visual dashboard can support policy planning, academic research, and early‑warning assessments for global hunger.</li>
+  </ul>
+  </section>
+
+</body>
+</html>
